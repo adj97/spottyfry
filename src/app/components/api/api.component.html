@@ -1,0 +1,7 @@
+<p>api works!</p>
+
+<button *ngIf="spotifyService.access_token" (click)=spotifyService.get_user()>Spotify Api: Get user</button>
+<div *ngIf="spotifyService.current_user">{{spotifyService.current_user | json}}</div>
+<br>
+<button *ngIf="spotifyService.access_token" (click)=spotifyService.get_user_playlists()>Spotify Api: Get playlists</button>
+<div *ngIf="spotifyService.playlists">{{spotifyService.playlists | json}}</div>

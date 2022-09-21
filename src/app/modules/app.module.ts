@@ -7,12 +7,14 @@ import { HomeComponent } from '../components/home/home.component';
 import { CallbackComponent } from '../components/callback/callback.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ApiComponent } from '../components/api/api.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CallbackComponent
+    CallbackComponent,
+    ApiComponent
   ],
   imports: [
     BrowserModule,

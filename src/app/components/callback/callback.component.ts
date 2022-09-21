@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SpotifyService } from 'src/app/services/spotify-service/spotify.service';
 
 @Component({
@@ -11,10 +11,15 @@ export class CallbackComponent implements OnInit {
 
   constructor(
       private activatedRoute: ActivatedRoute,
-      public spotifyService: SpotifyService
+      public spotifyService: SpotifyService,
+      private router: Router
     ) { 
       this.activatedRoute.queryParams.subscribe(
-        res => this.spotifyService.authorisation_code = res['code']
+        res => {
+          this.spotifyService.authorisation_code = res['code'];
+          this.spotifyService.access_code()
+          this.router.navigate(['/api'])
+        }
       )
   }
 

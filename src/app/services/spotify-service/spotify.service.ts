@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class SpotifyService {
 
   authorisation_code: string = ""
   redirect_uri: string = "http://localhost:4200/callback"
-  client_id: string = "9b609df3c42f4b278a3dd060723f39be"
-  client_secret: string = "c9122e919d4249e1b4a64df9354aa1f3"
+  client_id: string = environment.spotify_app_client.id
+  client_secret: string = environment.spotify_app_client.secret
   scopes: string[] = ["user-read-private", "user-read-email"]
 
   access_token: string = ""
